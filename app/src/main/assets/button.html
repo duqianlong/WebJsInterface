@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		混合开发
+		<p id="msg"></p>
+		<img id="img" />
+		<button id="takePhoto">拍照</button>
+		<button id="toastBtn">相册</button>
+		<button id="toastBtn1">提供给移动端的方法</button>
+	</body>
+	<script type="text/javascript">
+		var takePhoto = document.getElementById("takePhoto");
+		takePhoto.onclick = function (){
+			// window.WebViewTakePhoto.takePhoto()
+			window.camera.setcamera()
+		}
+		
+		//Android传参给前端
+		var toastBtn = document.getElementById("toastBtn");
+		toastBtn.onclick = function () {
+			window.camera.setgallery();
+		}
+		
+		//前端传参给Android
+		var toastBtn1 = document.getElementById("toastBtn1");
+		toastBtn1.onclick = function () {
+			window.camera.toAndroid("111111111111111111111")
+		}
+
+		//安卓传值给js
+
+
+		var img = document.getElementById("img")
+		var msg = document.getElementById("msg");
+		function testParams(str) {
+			msg.innerHTML = str;
+			img.src= str;
+		}
+
+	</script>
+</html>
